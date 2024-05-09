@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<TITLE>Metodo Get</TITLE>
+</head>
+<style>
+nav{
+	background-color: #4169E1;
+	overflow: hidden;
+	padding: 0,5%;
+	width:100%;
+	}
+	nav ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	}
+	nav li{
+	float: left;
+	}
+	nav a{
+	font-family: Verdana, sans-serif; 
+	font-size:100%;
+	display: block;
+	color: white;
+	text-align: left;
+	float: left;
+	padding: 1%;
+	text-decoration: none;
+	}
+	nav a:hover{
+	font-family: Verdana, sans-serif; 
+	font-size:100%;
+	background-color: #87CEEB;
+	color: black;
+	}
+	a{
+	text-decoration:none;
+	color:white;
+	}
+	body{
+		font-family:Verdana, sans-serif;
+		color:white;
+		font-size: 130%;
+		background-image: url('');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+	h1{
+	font-size:200%;
+	font-family: Futura, sans-serif; 
+	color:black;
+	}
+    section {
+      width: 200px;
+      font-size: 12px;
+      height: 230px;
+      margin: 0 auto;
+      margin-top: 10px;
+      padding: 15px;
+      padding-top: 5px;     
+	}
+    div {
+      float: center;
+      font-size: 12px;
+      border: 2px;
+      border-bottom: 2px ;
+      padding: 10px;
+      height: 43px;         
+	}
+    label {
+      font-size: 15px;
+      width: 150px;
+      float: left;  
+	  color:black;	  
+	}
+    input, textarea, select {
+      border: 1px solid #dcdcdc;
+      font-size: 12px;
+      padding: 5px;
+      width: 250px;
+	  height: 20px;
+      color: #9498;
+      float: left;         
+	}
+    button {
+      margin-left: 100px;
+      font-size: 12px;
+      padding: 10px;
+      color: #675;         
+	}
+	h2{
+	color:black;
+	}
+</style>
+<body>
+<CENTER><h1>FORM METODO GET</h1></CENTER>
+<nav>
+<a href="Form_home.html"><big>HOME</big></a>
+<a href="Form_metodoGet.html"><big>METODO GET</big></a>
+<a href="Form_metodoPost.html"><big>METODO POST</big></a>
+</nav>	 
+<form method="get">
+	<section>
+	<h2>Iscriviti al Sito</h2>
+	<div>
+		<label>Nome</label>
+		<input name="nome" type="text" required autofocus="autofocus">
+		</div>
+	<div>
+		<label>Cognome</label>
+		<input name="cognome" type="text" required autofocus="autofocus">
+		</div>
+	<div>
+		<label>Nazionalità</label>
+		<select name="nazionalità">
+		<option value="italiana">Italiana</option>
+		<option value="inglese">Inglese</option>
+		<option value="tedesca">Tedesca</option>
+		<option value="spagnola">Spagnola</option>
+		<option value="cinese">Cinese</option>
+		<option value="altra nazionalità">Altra Nazionalità</option>
+		</select>
+		</div>
+	<div>
+		<label>Telefono</label>
+		<input name="tel" type="tel" required>
+		</div>
+	<div>
+		<label>Email</label>
+		<input name="email" type="email" placeholder="user@dominio.it" required>
+		</div>
+	<div>
+		<label>Sito Web</label>
+		<input name="sito" type="url" placeholder="www.sitoweb.it">
+		</div>
+	<div>
+		<input type="submit" name="inv" value="Invia Form">
+		</div>
+	<div>
+		<input type="reset" name="ann" value="Annulla">
+		</div>
+	</section>
+</form>
+</body>
+</html>

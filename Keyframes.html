@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<TITLE>Keyframes</TITLE> 
+<style>
+	nav{
+	background-color: green;
+	overflow: hidden;
+	padding: 15px;
+	width:25%;
+	}
+	nav ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	}
+	nav li a{
+	display: block;
+	width: 25%;
+	}
+	nav a{
+	font-family: Verdana, sans-serif; 
+	font-size:15px;
+	display: block;
+	color: white;
+	text-align: left;
+	padding: 10px;
+	text-decoration: none;
+	}
+	nav a:hover{
+	background-color: blue;
+	color: white;
+	font-family: Verdana, sans-serif; 
+	font-size:15px;
+	}
+	div {
+	width: 150px;
+	height: 150px;
+	background-color: blue;
+	animation-name: esempio;
+	animation-duration: 5s;
+	margin-left:5%;
+	}
+	@keyframes esempio {
+	from {background-color: blue;}
+	to {background-color: green;}
+	}
+	p{
+	font-family: Verdana, sans-serif; 
+	font-size:25px;
+	color: black;
+	float: left;
+	margin-top:5%;
+</style>
+</head>
+<body>
+<nav>
+<a target="_blank" href="Keyframes.html"><big>Keyframes</big></a>
+<a target="_blank" href="RitardoAnimazione_CSS.html"><big>Ritardo animazione</big></a>
+<a target="_blank" href="IterazioniAnimazione_CSS.html"><big>Iterazioni animazione</big></a>
+<a target="_blank" href="CurvaDiVelocita_CSS.html"><big>Curva di velocita' animazione</big></a>
+</nav>
+<h1>Animazione CSS Keyframe</h1>
+<div></div>
+<p>Quando vengono specificati gli stili CSS all'interno della regola keyframes, l'animazione cambierà gradualmente dallo stile corrente al nuovo stile in determinati momenti.<br>
+Per far funzionare un'animazione, è necessario associare l'animazione a un elemento.<br>
+L'esempio precedente associa l'animazione "example" all'elemento div.<br>
+L'animazione durerà 5 secondi e cambierà gradualmente il colore di sfondo dell'elemento div da "blu" a "verde"</p>
+</body>
+</html>

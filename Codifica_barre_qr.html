@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+<title>Codifica codici a barre e qr</title>
+<style>
+   h1{
+    font-size: 25 px;
+    color: red;
+    text-align: center;
+	}
+	body{
+	font-family: Comic-Sans; 
+	color:white; 
+	font-size:20px;
+	}
+</style>
+</head>
+<body>
+    <h1>Codifica Codici a barre </h1>
+La codifica più diffusa è l'EAN-13 che permette di codificare 13 cifre, ma esiste anche I’EAN-8 che è più semplice e ne codifica solo 8.<br>
+Prima di tutto esistono 3 codifiche, chiamate A, B e C, che utilizzano 7 bit per codificare una cifra.<br>
+<img src="immagini&video/codici_a_barre.png" width="650" height="350" border="5"><br>
+La prima cifra del codice indica quali codifiche utilizzare nelle varie posizioni, come nella seguente tabella.<br>
+<img src="immagini&video/tipo_di_codifica.png" width="650" height="350" border="5"><br>
+-Per esempio se la prima cifra (che viene anche indicata fuori dal codice a barre) è 9, significa che nella posizione 1 viene utilizzata la codifica A, nella seconda la codifica B, nella terza ancora B ecc.<br> 
+-Se viene letto un numero binario che non appartiene alla giusta codifica, significa che c'è un errore e occorre rileggere il codice.<br>
+-Dopo la prima cifra si trovano due barre un po' più lunghe che indicano l’inizio del codice.<br> 
+-Successivamente si trovano 6 numeri, poi il simbolo di stop, altri 6 numeri e il segno di chiusura.<br> 
+-La codifica è definita posizione per posizione, a partire dalla prima cifra.<br>
+<img src="immagini&video/Come_sonoFatti.png" width="650" height="350" border="5"><br>
+<img src="https://tendenzeonline.info/content/cms_thumbnails/cms/2018/04/19/codiceabarregs1italy_ean_1.png__525x392_q85_crop_subsampling-2_upscale.png" width="650" height="350" border="5"><br>
+<h1>Codifica Qr code</h1>
+La codifica dei Qr code è basata sul massiccio uso di ridondanza nella gestione dell’errore.<br> 
+Tramite il codice Reed-Solomon, nel caso in cui il QR fosse in parte danneggiato, per esempio da macchie o graffi sul supporto cartaceo, c’è la possibilità di ricostruire i dati persi, ripristinando, durante la decodifica, fino al 30% delle informazioni codificate.<br> 
+I codici sono fatti di quadratini bianchi e neri, ognuno di questi è un modulo.<br>
+Alcuni moduli non devono essere coperti o modificati, altrimenti il codice non verrà letto.<br>
+Sono stati evidenziati, nella figura sottostante, diversi colori:<br>
+-I tre grandi quadrati evidenziati in rosso sono i segnaposto, questi indicano allo scanner i margini del QR code.<br>
+-Il quadrato piccolo, evidenziato in rosso è di allineamento, è un punto di riferimento per lo scanner, per essere sicuro di essere allineato(nei codici più grandi ve ne sono più d’uno).<br>
+-Le strisce rosse che evidenziano quadratini neri e bianchi definiscono le posizioni di righe e colonne.<br>
+-Le sezioni verdi determinano il formato. Queste indicheranno allo scanner se il codice indica un sito web, un SMS, ideogrammi cinesi, numeri o combinazioni di questi elementi.<br>
+-I moduli evidenziati in blu rappresentano il numero della versione. Più moduli ci sono, più è alto il numero della versione.<br>
+<img src="https://vitolavecchia.altervista.org/wp-content/uploads/2017/04/Codifica-QR-Code.jpg" width="450" height="400" border="5"> 
+</body>
+</html>

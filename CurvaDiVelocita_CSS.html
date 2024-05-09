@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<TITLE>Curva di velocità animazione</TITLE> 
+<style>
+	nav{
+	background-color: green;
+	overflow: hidden;
+	padding: 15px;
+	width:25%;
+	}
+	nav ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	}
+	nav li a{
+	display: block;
+	width: 25%;
+	}
+	nav a{
+	font-family: Verdana, sans-serif; 
+	font-size:15px;
+	display: block;
+	color: white;
+	text-align: left;
+	padding: 10px;
+	text-decoration: none;
+	}
+	nav a:hover{
+	background-color: blue;
+	color: white;
+	font-family: Verdana, sans-serif; 
+	font-size:15px;
+	}
+	div {
+	font-family: Verdana, sans-serif; 
+	font-size:25px;
+	width: 150px;
+	height: 100px;
+	background-color: yellow;
+	font-weight: bold;
+	position: relative;
+	animation: mymove 5s;
+	animation-fill-mode: forwards;
+	margin-left:3%;
+	}
+	#div1 {animation-timing-function: linear;}
+	#div2 {animation-timing-function: ease;}
+	#div3 {animation-timing-function: ease-in;}
+	#div4 {animation-timing-function: ease-out;}
+	#div5 {animation-timing-function: ease-in-out;}
+	@keyframes mymove {
+	from {left: 0px;}
+	to {left: 300px;}
+	}
+	p{
+	font-family: Verdana, sans-serif; 
+	font-size:25px;
+	color: black;
+	float: left;
+	margin-top:5%;
+</style>
+</head>
+<body>
+<nav>
+<a target="_blank" href="Keyframes.html"><big>Keyframes</big></a>
+<a target="_blank" href="RitardoAnimazione_CSS.html"><big>Ritardo animazione</big></a>
+<a target="_blank" href="IterazioniAnimazione_CSS.html"><big>Iterazioni animazione</big></a>
+<a target="_blank" href="CurvaDiVelocita_CSS.html"><big>Curva di velocita' animazione</big></a>
+</nav>
+<h1>Animazione CSS con diversa curva di velocità</h1>
+<div id="div1">ciao</div>
+<div id="div2">a</div>
+<div id="div3">tutti</div>
+<div id="div4">sono</div>
+<div id="div5">Christian</div>
+<p>La proprieta' animation-timing-function specifica la curva di velocità dell'animazione.<br>
+La proprietà Animation-Timer-Function può avere i seguenti valori:<br>
+ease- Specifica un'animazione con un inizio lento, poi veloce, quindi termina lentamente (questa è l'impostazione predefinita)<br>
+linear- Specifica un'animazione con la stessa velocità dall'inizio alla fine<br>
+ease-in- Specifica un'animazione con un avvio lento<br>
+ease-out- Specifica un'animazione con una fine lenta<br>
+ease-in-out- Specifica un'animazione con inizio e fine lenti<br>
+cubic-bezier(n,n,n,n)- Ti consente di definire i tuoi valori in una funzione cubica-Bezier<br>
+L'esempio precedente mostra alcune delle diverse curve di velocità che possono essere utilizzate</p>
+</body>
+</html>

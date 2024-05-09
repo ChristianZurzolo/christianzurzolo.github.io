@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="https://megamarketing.it/wp-content/uploads/2019/08/Come-creare-un-codice-QR-in-8-semplici-passaggi.jpg" type="image/x-icon">
+        <title>
+            Funzionamento codici a barre e QR Code
+        </title>
+    </head>
+    <style>
+        h1{
+            font-size: 20 px;
+            color: red;
+            text-align: center;
+        }
+        body{
+            background-color: white;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        p{
+            font-size: 15 px;
+            color: black;
+            margin: auto;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        p1{
+            font-size: 15 px;
+            color: black;
+            margin: auto;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .contenitore{
+            border: 1px solid #ccc;
+            position: relative;
+            width: 1500px;
+            height: 500px;
+            padding: 10px;
+            margin: 20px;
+            background-color: orangered;
+            }
+        .titolo{
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            background-color: aqua;
+        }
+        .contenuto1{
+            float: left;
+            width: 40%;
+            height: auto;
+        }
+        .contenuto2{
+            float: right;
+            width: 40%;
+            height: auto;
+            padding-left: 20%;
+            width: auto;
+            height: auto;
+        }        
+    </style>
+    <h1> Dove si trovano i QR Code? </h1>
+    <p>
+        <span style="background-color: yellow; font-size: bold; color: green;">I QR Code</span>, nel corso degli ultimi anni (grazie anche allo sviluppo tecnologico che c'è stato), <span style="background-color: yellow; font-size: bold; color: green;">hanno avuto un importante processo evolutivo, tanto che oramai fanno parte della vita di tutti i giorni.</span>  Questi si possono trovare in molti contesti e ambiti, poiché <span style="background-color: yellow; font-size: bold; color: green;">sono diventati una forma comune di codifica di informazioni digitali e non. </span>
+        <p1>
+            I principali contesti in cui troviamo la forte presenza dei QR Code sono:  
+        </p1>
+        <ul style="list-style-type: none;">
+            <li>
+                <img src="data:image/png;base64,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" width="50px"; height="50px">
+                <strong>Prodotti e confezioni</strong>: imprese e multinazionali utilizzano i QR code sulle confezioni dei loro prodotti per fornire informazioni aggiuntive riguardo a ciò che vogliono proporre al venditore;
+            </li>
+            <li>
+                <img src="https://icon-library.com/images/ads-icon/ads-icon-19.jpg" width="50x"; height="50px">
+                <strong>Pubblicità</strong>: Gli annunci includono a volte QR code, i quali possono essere scannerizzati per fornire ulteriori dettagli, link a siti web esterni o promozioni attualmente in corso;
+            </li>
+            <li>
+                <img src="https://banner2.cleanpng.com/20180714/scz/kisspng-airplane-silhouette-aircraft-drawing-aeroplane-5b49af27ef5ee2.1902323615315556239805.jpg" width="50px"; height="50px">
+                <strong>Documenti per l'imbarco</strong>: le carte utilizzate comunemente per poter viaggiare possono contenere QR code per semplificare il processo di verifica oppure per poter illustrare in altra realtà il tipo di viaggio da intraprendere;
+            </li>
+            <li>
+                <img src="https://icon2.cleanpng.com/20190303/hla/kisspng-tiktok-musical-ly-online-video-platform-mobile-app-5c7c4120a6de06.9578571615516470086835.jpg" width="50px"; height="50px">
+                <strong>Social media</strong>: i QR Code, raramente, possono essere presenti in alcuni siti web per poter rimandare, una volta inquadrati, alla pagina principale di una determinata persona o contesto presente in un social media;
+            </li>
+            <li>
+                <img src="https://c1.klipartz.com/pngpicture/772/321/sticker-png-indian-food-restaurant-cafe-dish-meal-breakfast-chef-computer-icons-thumbnail.png" width="50px"; height="50px">
+                <strong>Menù dei ristoranti</strong>: negli ultimi anni, con l'evoluzione tecnologica, anche bar e ristoranti si sono evoluti, facendo esibire nei tavolini che li compongono dei QR Code i quali, dopo essere stati inquadrati, 
+                rimanderanno ad un menù digitale dove vi è la possibilità anche di poter effettuare ordini;
+            </li>
+            <li>
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/022/595/014/small/3d-illustration-of-advertising-calendar-plan-png.png" width="50px"; height="50px">
+                <strong>Cartelloni pubblicitari</strong>: i QR Code possono anche trovarsi nei cartelloni pubblicitari per poter aggiungere informazioni in merito ad una determinata campagna o informazione esibita;
+            </li>
+            <li>
+                <img src="https://spng.pinpng.com/pngs/s/234-2348415_microfono-disegno-png-transparent-png.png" width="50px"; height="50px">
+                <strong>Eventi</strong>: nei biglietti digitali o cartacei, i QR Code sono presenti per poter dare una mano ai controllori dei vari gestori eventi in modo da poter ridurre il numero di persone con biglietti fasulli;
+            </li>
+            <li>
+                <img src="https://icon2.cleanpng.com/20180527/yfq/kisspng-wi-fi-computer-icons-symbol-wireless-network-5b0a7452b89a14.7346246215274117947561.jpg" width="50px"; height="50px">
+                <strong>Connessioni per dispositivi</strong>: i vari dispositivi elettronici, quali Smartphone, tablet e PC, possono generare, tramite le impostazioni del device, un QR Code in modo che, chi ha bisogno, può connettersi facilmente alla rete desiderata.
+            </li>
+        </ul>
+    </p>
+
+    <center>
+        <div class="contenitore">
+            <div class="titolo">QR Code</div>
+            
+            <div class="contenuto1">
+                <img src="../immagini/qr code immagini.png" width="400px"; height="350px">
+            </div>
+            <div class="contenuto2">
+                <p>Video che spiega <strong style="color: purple;"> come inquadrare un qr code con il proprio telefono </strong> </p>
+                <iframe width="300" height="250" src="https://www.youtube.com/embed/idEsa-T6oqs?si=sAbHJ1vZPBZ1eFqn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <a href="https://nordvpn.com/it/blog/come-scansionare-qr-code/#:~:text=o%20un%20laptop%3A-,Su%20Windows,-Per%20scansionare%20un" style="text-decoration: none;">
+                <p>clicca qui per vedere come inquadrare il qr code <strong style="color: purple;"> con il pc</strong></p>
+            </a>
+            </div>
+        </div>
+    </center>
+    <h1> Dove si trovano i Codici a barre? </h1>
+    <p>
+       
+I codici a barre si trovano all'interno di un ampio insieme di prodotti e oggetti di consumo e non . Comunemente, <span style="background-color: yellow; font-size: bold; color: green;">vengono stampati con fomati differenti sull'etichetta del prodotto o sulla confezione di questo negli spazi laterali.</span>
+<p1>
+    I principali ambiti in cui noi troviamo una forte presenza di codici a barre stampati sono:
+</p1>
+    <ul style="list-style-type: none;">
+        <li>
+            <img src="https://png.pngtree.com/png-vector/20221005/ourmid/pngtree-slice-of-pizza-vector-illustration-design-with-delicious-melted-cheese-png-image_6282646.png" width="50px"; height="50px">
+            <strong>Prodotti di uso alimentare</strong>: su tutti i tipi di cibi (precotti, surgelati, sott'olio...), il codice a barre è presente sulla parte inferiore, superiore o posteriore della confezione;
+        </li>
+        <li>
+            <img src="https://www.supercoloring.com/sites/default/files/styles/coloring_medium/public/cif/2022/01/shampoo-coloring-page.png" width="50px" height="50px">
+            <strong>Prodotti usati per la cura personale</strong>: come i prodotti alimentari, prodotti usati per la cura del proprio corpo (come shampoo; bagnoschiuma, salviette struccanti, dentifrici...) hanno un codice a barre su una determinata parte della confezione che li costituisce;
+        </li>
+        <li>
+            <img src="https://banner2.cleanpng.com/20171201/a59/white-t-shirt-png-image-5a215253ae1c21.0278836215121332037132.jpg" width="50px" height="50px">
+            <strong>Capi di abbigliamento</strong>: in questa gamma di prodotti, il codice a barre è nell'etichetta che costituisce l'indumento, la quale presenta anche informazioni aggiuntive su esso (come materiale e tipo di lavaggio);
+        </li>
+        <li>
+            <img src="https://e7.pngegg.com/pngimages/558/577/png-clipart-computer-icons-book-open-book-angle-rectangle.png" width="50px"; height="50px">
+            <strong>Libri</strong>: libri digitali (formato Kindle) oppure con copertina flessibile presentano un codice a barre, individuabile in diverse zone;
+        </li>
+        <li>
+            <img src="data:image/png;base64,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" width="50px"; height="50px">
+            <strong>Prodotti elettronici di uso comune</strong>: elettrodomestici, dispositivi elettronici o altri strumenti tecnologici;
+        </li>
+        <li>
+            <img src="https://banner2.cleanpng.com/20180714/scz/kisspng-airplane-silhouette-aircraft-drawing-aeroplane-5b49af27ef5ee2.1902323615315556239805.jpg" width="50px"; height="50px">
+            <strong>Documenti per l'imbarco</strong>;
+        </li>
+        <li>
+            <img src="https://static.vecteezy.com/system/resources/previews/021/193/221/original/medicine-bottle-icon-medical-assets-3d-rendering-png.png" width="50px"; height="50px">
+            <strong>Farmaci e prodotti medicinali</strong>;
+        </li>
+        <li>
+            <img src="https://png.pngtree.com/png-vector/20240124/ourlarge/pngtree-the-package-has-arrived-home-png-image_11480889.png" width="50px"; height="50px">
+            <strong>Lettere e pacchi</strong>: i codici a barre sono presenti in questi in modo da poter facilitare la gestione della spedizione.
+        </li>
+    </ul>
+</p>
+    </p>
+    <center>
+        <p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/z8ry529EfbE?si=sVRUymmESU7dfqZz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                <p style="padding-top: 10px;">Video che spiega <strong style="color: lightblue;"> come utilizzare il proprio telefono come lettore di codici a barre </strong></p>
+            </iframe>
+        </p>
+        <p style="padding-top: 10px;">
+            <img src="../immagini/barcode.gif">
+            <p style="padding-top: 10px;">
+                esempio di codice a barre
+            </p>
+        </p>
+    </center>
+</html>
