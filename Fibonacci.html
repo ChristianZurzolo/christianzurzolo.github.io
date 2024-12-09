@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sequenza di Fibonacci</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+        color: white;
+        background-image: url("https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTR8fHxlbnwwfHx8fHw%3D");
+      }
+      #sequenzaFibonacci {
+        font-size: 20px;
+        margin-top: 20px;
+        white-space: pre-line;
+        font-family: Verdana, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sequenza di Fibonacci fino a 1000</h1>
+    <div id="sequenzaFibonacci"></div>
+    <script>
+      function generateFibonacci() {
+        let a = 0,
+          b = 1;
+        let sequence = "";
+        do {
+          sequence += a + "\n";
+          let temp = a;
+          a = b;
+          b = temp + b;
+        } while (a <= 1000);
+        document.getElementById("sequenzaFibonacci").textContent = sequence;
+      }
+    </script>
+    <input type="button" value="GENERA LA SEQUENZA" onclick="generateFibonacci()"/>
+  </body>
+</html>

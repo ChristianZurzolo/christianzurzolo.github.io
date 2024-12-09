@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elenco nomi</title>
+    <style>
+      h1{
+      text-align: center;
+      color: rgb(18, 207, 112);
+      font-size: 180%;
+      padding-bottom: 15px;
+      font-family: Verdana, sans-serif;
+  } 
+  h2{
+      text-align: center;
+      color: rgb(178, 226, 66);
+      font-size: 140%;
+      padding-bottom: 15px;
+      font-family: Verdana, sans-serif;
+  }
+  p{
+      color: white;
+      font-family: Verdana, sans-serif;
+      padding-left: 2%;
+  }
+  body{
+      background-image: url('https://wallpapers.com/images/hd/4k-ultra-hd-dark-teal-highway-7zbd70j0uhg7udmp.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+  }
+  table {
+      width: 50%;
+      margin: 0 auto;
+      border-collapse: collapse;
+  }
+  th, td {
+      padding: 10px;
+      text-align: center;
+      border: 3px solid white;
+      font-size: 130%;
+      color: white;
+      font-family: Verdana, sans-serif;
+  }
+    </style>
+</head>
+<body>
+  <script>
+    let persone = [];
+    function aggiungiPersona() {
+      const nome = document.getElementById("demo").value;
+      const cognome = document.getElementById("demo1").value;
+      const eta = document.getElementById("demo2").value;
+      const indirizzo = document.getElementById("demo3").value;
+      const cap = document.getElementById("demo4").value;
+      const citta = document.getElementById("demo5").value;
+      if (nome && cognome && eta && indirizzo && cap && citta) {
+    const persona = {
+      nome: nome,
+      cognome: cognome,
+      eta: eta,
+      indirizzo: indirizzo,
+      cap: cap,
+      città: citta
+    };
+    persone.push(persona);
+    aggiornaTabella();
+                document.getElementById("demo").value = '';
+                document.getElementById("demo1").value = '';
+                document.getElementById("demo2").value = '';
+                document.getElementById("demo3").value = '';
+                document.getElementById("demo4").value = '';
+                document.getElementById("demo5").value = '';
+              } else {
+                alert("Compila tutti i campi!");
+            }
+        }
+function aggiornaTabella() {
+  const tabella = document.getElementById("tabellaPersone");
+            tabella.innerHTML = ''; 
+            persone.forEach(persona => {
+                const riga = tabella.insertRow();
+                const cellaNome = riga.insertCell(0);
+                cellaNome.textContent = persona.nome;
+                const cellaCognome = riga.insertCell(1);
+                cellaCognome.textContent = persona.cognome;
+                const cellaEta = riga.insertCell(2);
+                cellaEta.textContent = persona.eta;
+                const cellaIndirizzo = riga.insertCell(3);
+                cellaIndirizzo.textContent = persona.indirizzo;
+                const cellaCap = riga.insertCell(4);
+                cellaCap.textContent = persona.cap;
+                const cellaCitta = riga.insertCell(5);
+                cellaCitta.textContent = persona.citta;
+            });
+        }
+  </script>
+  <h1>Elenco nomi</h1>
+  <h2>Christian Zurzolo</h2>
+  <p> Nome:
+      <input type="text" id="demo">
+  </p>
+  <p> Cognome:
+      <input type="text" id="demo1">
+  </p>
+  <p> Età:
+      <input type="text" id="demo2">
+  <p> Indirizzo:
+      <input type="text" id="demo3">
+  <p> CAP:
+      <input type="text" id="demo4">
+  <p> Città:
+      <input type="text" id="demo5">
+      <button onclick="aggiungiPersona()">Aggiungi Persona</button>
+  </p>
+  <center>
+    <table id="tabellaPersone">
+      <tr>
+          <th colspan="6" style="color: rgb(139, 8, 8); text-align: center">Vettore dati</th>
+          </tr>
+          <tr>
+          <td><p id="dest"></p></td>
+          <td><p id="dest1"></p></td>
+          <td><p id="dest2"></p></td>
+          <td><p id="dest2"></p></td>
+          <td><p id="dest2"></p></td>
+          <td><p id="dest2"></p></td>
+          </tr>
+          </table>
+  </center>
+</body>
+</html>
