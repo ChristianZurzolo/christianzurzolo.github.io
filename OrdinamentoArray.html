@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ordinamento array</title>
+    <style>
+    body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    background-image: url("https://e0.pxfuel.com/wallpapers/214/141/desktop-wallpaper-background-footage-ideal-for-blockchain-website-for-your-mobile-tablet-explore-background.jpg");
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #065af7;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #2aeec4;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #160a85;
+    color: #f01c1c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c8df49;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+#Crescente, #discendente {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #e9f5ff;
+    border: 1px solid #b3dfff;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ordinamento Array</h1>
+        <label for="arrayInput">Inserisci valori numerici separati da uno spazio</label>
+        <input type="text" id="arrayInput" placeholder="Esempio: 5 3 8 1 2">
+        <button id="ordinaBtn">Ordina Array</button>
+        
+        <div id="result">
+            <div id="Crescente">
+                <h2>Ordinamento Crescente</h2>
+                <p id="crescente"></p>
+            </div>
+            <div id="discendente">
+                <h2>Ordinamento Decrescente</h2>
+                <p id="decrescente"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById("ordinaBtn").addEventListener("click", () => {
+    const input = document.getElementById("arrayInput").value;
+    const numberArray = input.split(" ").map(Number);
+    const ascendingArray = [numberArray].sort((a, b) => a - b);
+    const descendingArray = [numberArray].sort((a, b) => b - a);
+    document.getElementById("crescente").innerText = ascendingArray.join(", ");
+    document.getElementById("decrescente").innerText = descendingArray.join(", ");
+    });
+    </script>
+</body>
+</html>
