@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabella CSV</title>
+</head>
+    <style>
+        body{
+        background-image: url("https://doppiavu.wordpress.com/wp-content/uploads/2008/03/sfondo1.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        }
+        p {
+            font-size: 25px;
+            padding-top: 10px;
+            font-weight: bold;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            padding-top: 8px;
+        }
+        table {
+            width: 40%;
+            margin-left: 30%;;
+            padding-top: 10px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 3px solid rgb(42, 210, 240);
+            font-weight: bold;
+            font-size: 20px;
+            color:white;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>TABELLA CSV (migranti)</h1>
+    <p>
+    Inserire il file:
+    </p>
+    <input type="file" onchange="readFile(this)" accept=".csv">
+    <table id="tabellaCSV"></table>
+    <script>
+        function readFile(input) {
+            let file = input.files[0];
+            let reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function() {
+                let data = reader.result;
+                let rows = data.split("\n");
+                let table = document.getElementById("tabellaCSV");
+                table.innerHTML = "";
+
+                for (let i = 0; i < rows.length; i++) {
+                    let row = rows[i].split(",");
+                    let tr = document.createElement("tr");
+                    for (let j = 0; j < row.length; j++) {
+                        let cell;
+                        if (i === 0) {
+                            cell = document.createElement("th");
+                        } else {
+                            cell = document.createElement("td");
+                        }
+                        cell.textContent = row[j].trim();
+                        tr.appendChild(cell);
+                    }
+                    table.appendChild(tr);
+                }
+            };
+            reader.onerror = function() {
+                console.error("errore nella lettura del file:", reader.error);
+            };
+        }
+    </script>
+</body>
+</html>
