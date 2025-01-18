@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stella a 5 punte</title>
+</head>
+    <style>
+        body{
+            background-image: url("https://img.pikbest.com/wp/202348/space-and-planets-illustration-of-3d-background-with-planet-stars-in-galaxy_9781549.jpg!sw800");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            padding-top: 8px;
+        }
+        canvas {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid whitesmoke;
+            background-image: url("https://lofficina.eu/wp-content/uploads/2017/07/29_08_MeraviglieCieloStellato_600x398.jpg");
+        }
+    </style>
+</head>
+<body>
+    <h1>Stella a 5 punte</h1>
+    <canvas id="Canvas" width="300" height="300" ></canvas>
+    </body>
+<script>
+    const canvas = document.getElementById("Canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "yellow";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(150, 20);    
+    ctx.lineTo(195, 140);  
+    ctx.lineTo(300, 150);  
+    ctx.lineTo(215, 200);  
+    ctx.lineTo(225, 300);  
+    ctx.lineTo(150, 200);  
+    ctx.lineTo(75, 300);   
+    ctx.lineTo(85, 200);   
+    ctx.lineTo(0, 150);    
+    ctx.lineTo(105, 140);  
+    ctx.closePath();       
+    ctx.fill();
+    ctx.stroke();
+</script>
+</html>
