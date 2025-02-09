@@ -51,184 +51,96 @@
     <p>
     Inserire il file:
     </p>
-    <input type="file" onchange="readFile(this)" accept=".csv">
+    
+    <input type="file" onchange="caricaFile(this)" accept=".csv">
     <table id="tabellaCSV"></table>
     <p>Nel grafico è rappresentata la curva degli sbarchi dei migranti a partire dal 1997 fino al 2020</p><br>
     <p>ASSE X: Anni in ordine crescente</p><br>
     <p>ASSE Y: Numero sbarchi in ordine crescente</p>
-    <canvas id="Canvas" width="800" height="800" ></canvas>
+    <canvas id="Canvas" width="1500" height="700" ></canvas>
     <script>
-        function readFile(input) {
-            let file = input.files[0];
-            let reader = new FileReader();
+        function caricaFile(input) {
+            const file = input.files[0];
+            const reader = new FileReader();
             reader.readAsText(file);
             reader.onload = function() {
-                let data = reader.result;
-                let rows = data.split("\n");
-                let table = document.getElementById("tabellaCSV");
+                const rows = reader.result.split("\n");
+                const table = document.getElementById("tabellaCSV");
                 table.innerHTML = "";
+                const anni = [];
+                const sbarchi = [];
+
 
                 for (let i = 0; i < rows.length; i++) {
-                    let row = rows[i].split(",");
-                    let tr = document.createElement("tr");
-                    for (let j = 0; j < row.length; j++) {
-                        let cell;
-                        if (i === 0) {
-                            cell = document.createElement("th");
-                        } else {
-                            cell = document.createElement("td");
-                        }
-                        cell.textContent = row[j].trim();
-                        tr.appendChild(cell);
+                    const valori = rows[i].split(",");
+                    for (let j = 0; j < valori.length; j++) {
+                        for (let j = 0; j < valori.length; j++) {
+                        valori[j] = valori[j].replace(/"/g, '').trim();
                     }
-                    table.appendChild(tr);
+                    const rigaTabella = document.createElement("tr");
+                    for (let j = 0; j < valori.length; j++) {
+                        let cella;
+                        if (i === 0) {
+                            cella = document.createElement("th");
+                        } else {
+                            cella = document.createElement("td");
+                        }
+                        cella.textContent = valori[j];
+                        rigaTabella.appendChild(cella);
+                        if (i > 0) {
+                            if (j === 0) anni.push(parseInt(valori[j]));
+                            if (j === 1) sbarchi.push(parseInt(valori[j]));
+                        }
+                    }
+                    table.appendChild(rigaTabella);
                 }
-            };
-            reader.onerror = function() {
-                console.error("errore nella lettura del file:", reader.error);
+                disegnaGrafico(anni, sbarchi);
             };
         }
-        const canvas = document.getElementById("Canvas");
-        const ctx = canvas.getContext("2d");
-        ctx.beginPath();
-        //assi
-        ctx.moveTo(40, 10);
-        ctx.lineTo(40, 790);
-        ctx.moveTo(15, 770);
-        ctx.lineTo(795, 770);
-        ctx.stroke();
-        //anni
-        ctx.moveTo(70, 770);
-        ctx.lineTo(70, 775);
-        ctx.moveTo(100, 770);
-        ctx.lineTo(100, 775);
-        ctx.moveTo(130, 770);
-        ctx.lineTo(130, 775);
-        ctx.moveTo(160, 770);
-        ctx.lineTo(160, 775);
-        ctx.moveTo(190, 770);
-        ctx.lineTo(190, 775);
-        ctx.moveTo(220, 770);
-        ctx.lineTo(220, 775);
-        ctx.moveTo(250, 770);
-        ctx.lineTo(250, 775);
-        ctx.moveTo(280, 770);
-        ctx.lineTo(280, 775);
-        ctx.moveTo(310, 770);
-        ctx.lineTo(310, 775);
-        ctx.moveTo(340, 770);
-        ctx.lineTo(340, 775);
-        ctx.moveTo(370, 770);
-        ctx.lineTo(370, 775);
-        ctx.moveTo(400, 770);
-        ctx.lineTo(400, 775);
-        ctx.moveTo(430, 770);
-        ctx.lineTo(430, 775);
-        ctx.moveTo(460, 770);
-        ctx.lineTo(460, 775);
-        ctx.moveTo(490, 770);
-        ctx.lineTo(490, 775);
-        ctx.moveTo(520, 770);
-        ctx.lineTo(520, 775);
-        ctx.moveTo(550, 770);
-        ctx.lineTo(550, 775);
-        ctx.moveTo(580, 770);
-        ctx.lineTo(580, 775);
-        ctx.moveTo(610, 770);
-        ctx.lineTo(610, 775);
-        ctx.moveTo(640, 770);
-        ctx.lineTo(640, 775);
-        ctx.moveTo(670, 770);
-        ctx.lineTo(670, 775);
-        ctx.moveTo(700, 770);
-        ctx.lineTo(700, 775);
-        ctx.moveTo(730, 770);
-        ctx.lineTo(730, 775);
-        ctx.moveTo(760, 770);
-        ctx.lineTo(760, 775);
-        ctx.moveTo(790, 770);
-        ctx.lineTo(790, 775);
-        ctx.stroke();
-        //sbarchi
-        ctx.moveTo(40, 740);
-        ctx.lineTo(35, 740);
-        ctx.moveTo(40, 710);
-        ctx.lineTo(35, 710);
-        ctx.moveTo(40, 680);
-        ctx.lineTo(35, 680);
-        ctx.moveTo(40, 650);
-        ctx.lineTo(35, 650);
-        ctx.moveTo(40, 620);
-        ctx.lineTo(35, 620);
-        ctx.moveTo(40, 590);
-        ctx.lineTo(35, 590);
-        ctx.moveTo(40, 560);
-        ctx.lineTo(35, 560);
-        ctx.moveTo(40, 530);
-        ctx.lineTo(35, 530);
-        ctx.moveTo(40, 500);
-        ctx.lineTo(35, 500);
-        ctx.moveTo(40, 470);
-        ctx.lineTo(35, 470);
-        ctx.moveTo(40, 440);
-        ctx.lineTo(35, 440);
-        ctx.moveTo(40, 410);
-        ctx.lineTo(35, 410);
-        ctx.moveTo(40, 380);
-        ctx.lineTo(35, 380);
-        ctx.moveTo(40, 350);
-        ctx.lineTo(35, 350);
-        ctx.moveTo(40, 320);
-        ctx.lineTo(35, 320);
-        ctx.moveTo(40, 290);
-        ctx.lineTo(35, 290);
-        ctx.moveTo(40, 260);
-        ctx.lineTo(35, 260);
-        ctx.moveTo(40, 230);
-        ctx.lineTo(35, 230);
-        ctx.moveTo(40, 200);
-        ctx.lineTo(35, 200);
-        ctx.moveTo(40, 170);
-        ctx.lineTo(35, 170);
-        ctx.moveTo(40, 140);
-        ctx.lineTo(35, 140);
-        ctx.moveTo(40, 110);
-        ctx.lineTo(35, 110);
-        ctx.moveTo(40, 80);
-        ctx.lineTo(35, 80);
-        ctx.moveTo(40, 50);
-        ctx.lineTo(35, 50);
-        ctx.moveTo(40, 20);
-        ctx.lineTo(35, 20);
-        ctx.stroke();
-        //curve
-        ctx.moveTo(40, 770);
-        ctx.quadraticCurveTo(70, 470, 100, 230);
-        ctx.moveTo(100, 230);
-        ctx.quadraticCurveTo(130, 170, 160, 320);
-        ctx.moveTo(160, 320);
-        ctx.quadraticCurveTo(190, 530, 220, 380);
-        ctx.moveTo(220, 380);
-        ctx.quadraticCurveTo(250, 590, 280, 620);
-        ctx.moveTo(280, 620);
-        ctx.quadraticCurveTo(310, 440, 340, 500);
-        ctx.moveTo(340, 500);
-        ctx.quadraticCurveTo(370, 560, 400, 260);
-        ctx.moveTo(400, 260);
-        ctx.quadraticCurveTo(430, 710, 460, 740);
-        ctx.moveTo(460, 740);
-        ctx.quadraticCurveTo(490, 140, 520, 650);
-        ctx.moveTo(520, 650);
-        ctx.quadraticCurveTo(550, 200, 580, 50);
-        ctx.moveTo(580, 50);
-        ctx.quadraticCurveTo(610, 80, 640, 20);
-        ctx.moveTo(640, 20);
-        ctx.quadraticCurveTo(670, 110, 700, 350);
-        ctx.moveTo(700, 350);
-        ctx.quadraticCurveTo(730, 680, 760, 290);
-        ctx.moveTo(760, 290);
-        ctx.quadraticCurveTo(795, 770, 795, 770);
-        ctx.stroke();
+
+
+        function disegnaGrafico(anni, sbarchi) {
+            const Canvas = document.getElementById("Canvas");
+            const ctx = Canvas.getContext("2d");
+            ctx.clearRect(0, 0, Canvas.width, Canvas.height);
+
+            const margine = 50;
+            const larghezza = Canvas.width - 2 * margine;
+            const altezza = Canvas.height - 2 * margine;
+            const maxSbarchi = Math.max(...sbarchi);
+            const passoX = larghezza / (anni.length - 1);
+            const scalaY = altezza / maxSbarchi;
+
+            ctx.beginPath();
+            ctx.moveTo(margine, Canvas.height - margine);
+            ctx.lineTo(Canvas.width - margine, Canvas.height - margine);
+            ctx.moveTo(margine, Canvas.height - margine);
+            ctx.lineTo(margine, margine);
+            ctx.stroke();
+
+            ctx.beginPath();
+            for (let i = 0; i < anni.length; i++) {
+                const x = margine + i * passoX;
+                const y = Canvas.height - margine - sbarchi[i] * scalaY;
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            for (let i = 0; i < anni.length; i++) {
+                const x = margine + i * passoX;
+                ctx.fillText(anni[i], x - 10, Canvas.height - margine + 15);
+            }
+            for (let i = 0; i <= maxSbarchi; i += 10000) {
+                const y = Canvas.height - margine - i * scalaY;
+                ctx.fillText(i, margine - 40, y + 5);
+            }
+        }
+    }
         </script>
 </body>
 </html>
