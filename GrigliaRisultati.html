@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Griglia Risultati</title>
+</head>    
+<style>
+        body{
+            background-image: url('https://files.oaiusercontent.com/file-NY87DKr6XNtvrsJdhkqyQW?se=2025-02-23T15%3A56%3A41Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Daab99242-db4e-4495-a019-12972f482f29.webp&sig=m%2BfJJKoWEDE6qjuzUnhbyRB44Aqey5R2nIz9jqKh0W4%3D');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        table {
+            width: 50%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 3px solid rgb(9, 7, 116);
+            font-size: 130%;
+            color: black;
+            font-family: Verdana, sans-serif;
+        }
+        h1 {
+            color: red;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 30px;
+            font-size: 35px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabella Dati</h1>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4" style="text-align: center">Dati anagrafici</th>
+                <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Data di Nascita</th>
+                <th>Indirizzo</th>
+            </tr>
+        </tr>
+        </thead>
+        <tbody id="datiConferma"></tbody>
+    </table>
+
+    <script>
+        const dati = JSON.parse(localStorage.getItem('datiAnagrafici'));
+        if (dati && dati.length > 0) {
+            let output = '';
+            let i = 0;
+            while (i < dati.length) {
+                output += `<tr>
+                            <td>${dati[i]}</td>
+                            <td>${dati[i + 1]}</td>
+                            <td>${dati[i + 2]}</td>
+                            <td>${dati[i + 3]}</td>
+                        </tr>`;
+                i += 4;
+            }
+            document.getElementById("datiConferma").innerHTML = output;
+        } else {
+            document.getElementById("datiConferma").innerHTML = "<tr><td colspan='6'>Nessun dato è stato trovato.</td></tr>";
+        }
+    </script>
+</body>
+</html>
+

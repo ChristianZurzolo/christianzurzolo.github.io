@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Anagrafica Collection Oggetti</title>
+    </head>
+    <style>
+        h1 {
+            color: red;
+            text-align: center;
+            font-size: 35px;
+            padding-top: 5px;
+            padding-bottom: 15px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        body{
+            background-image: url('https://files.oaiusercontent.com/file-UByxLAoCEQzLopf5Lrm1Jm?se=2025-02-23T15%3A47%3A59Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D8a0060f0-c474-4381-a974-ef91aba0f3bd.webp&sig=6S2weeQzUSfp0SIW/SSRsVCjr4QiDx1yqTD2EJugoko%3D');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        p{
+            color: rgb(16, 219, 185);
+            font-family: Verdana, sans-serif;
+            text-align: left;
+            font-size: 25px;
+        }
+    </style>
+    <h1>Anagrafica Collection Oggetti</h1>
+    <p>Quante persone vuoi inserire?</p>
+    <input type="text" id="personeDaInserire">
+    <button onclick="genera()" value="invio">invio</button>
+    
+    <script>
+        function validaNomeCognome(str) {
+            const regex = /^[a-zA-Z\s]+$/;
+            return regex.test(str);
+        }
+        
+        function validaDataDiNascita(data) {
+            const regex = /^\d{2}\/\d{2}\/\d{4}$/;
+            return regex.test(data);
+        }
+        
+        function validaIndirizzo(indirizzo) {
+            const regex = /^[a-zA-Z\s]+$/;
+            return regex.test(indirizzo);
+        }
+        
+        
+        function genera() {
+            let numero = parseInt(document.getElementById("personeDaInserire").value, 10);
+            const dati = [];
+        
+            for (let i = 0; i < numero; i++) {
+                let nome;
+                do {
+                    nome = prompt('inserisci il nome');
+                    if (nome == null) {
+                        alert('esecuzione annullata');
+                        return;
+                    }
+                    if (!validaNomeCognome(nome)) {
+                        alert('nome non valido, inserisci solo lettere e spazi');
+                    }
+                } while (!validaNomeCognome(nome));
+        
+                dati.push(nome);
+        
+                let cognome;
+                do {
+                    cognome = prompt('inserisci il cognome');
+                    if (cognome == null) {
+                        alert('esecuzione annullata');
+                        return;
+                    }
+                    if (!validaNomeCognome(cognome)) {
+                        alert('cognome non valido, inserisci solo lettere e spazi');
+                    }
+                } while (!validaNomeCognome(cognome));
+        
+                dati.push(cognome);
+        
+                let dataDiNascita;
+                do {
+                    dataDiNascita = prompt('inserisci la data di nascita nel formato giorno/mese/anno');
+                    if (dataDiNascita == null) {
+                        alert('esecuzione annullata');
+                        return;
+                    }
+                    if (!validaDataDiNascita(dataDiNascita)) {
+                        alert('data di nascita non valida, inseriscila nel formato giorno/mese/anno');
+                    }
+                } while (!validaDataDiNascita(dataDiNascita));
+        
+                dati.push(dataDiNascita);
+        
+                let indirizzo;
+                do {
+                    indirizzo = prompt('inserisci la via e il numero civico separati da uno spazio (es. "via europa 5")');
+                    if (indirizzo == null) {
+                        alert('esecuzione annullata');
+                        return;
+                    }
+                } while (!indirizzo);
+        
+                dati.push(indirizzo);
+            }
+
+            localStorage.setItem('datiAnagrafici', JSON.stringify(dati));
+            location.href = 'GrigliaRisultati.html';
+        }
+    </script>            
+</html>
