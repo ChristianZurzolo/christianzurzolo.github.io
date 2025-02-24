@@ -42,33 +42,34 @@
                 <tr>
                 <th>Nome</th>
                 <th>Cognome</th>
-                <th>Data di Nascita</th>
+                <th>Età</th>
                 <th>Indirizzo</th>
             </tr>
-        </tr>
         </thead>
-        <tbody id="datiConferma"></tbody>
+        <tbody id="vettoreDati"></tbody>
     </table>
 
     <script>
-        const dati = JSON.parse(localStorage.getItem('datiAnagrafici'));
-        if (dati && dati.length > 0) {
-            let output = '';
-            let i = 0;
-            while (i < dati.length) {
-                output += `<tr>
-                            <td>${dati[i]}</td>
-                            <td>${dati[i + 1]}</td>
-                            <td>${dati[i + 2]}</td>
-                            <td>${dati[i + 3]}</td>
-                        </tr>`;
-                i += 4;
-            }
-            document.getElementById("datiConferma").innerHTML = output;
-        } else {
-            document.getElementById("datiConferma").innerHTML = "<tr><td colspan='6'>Nessun dato è stato trovato.</td></tr>";
+        const dati = JSON.parse(localStorage.getItem('vettoreDati'));
+        const tabella=document.getElementById('vettoreDati');
+        tabella.innerHTML = "";
+        for(let i=0; i<dati.length; i++){
+            const riga=document.createElement('tr');
+            const nome=document.createElement('td');
+            nome.textContent=dati[i].Nome;
+            const cognome=document.createElement('td');
+            cognome.textContent=dati[i].Cognome
+            const eta = document.createElement('td');
+            eta.textContent = dati[i].Eta;
+            const indirizzo = document.createElement('td');
+            indirizzo.textContent = dati[i].Indirizzo;
+
+            riga.appendChild(nome);
+            riga.appendChild(cognome);
+            riga.appendChild(eta);
+            riga.appendChild(indirizzo);
+            tabella.appendChild(riga);
         }
     </script>
 </body>
 </html>
-
