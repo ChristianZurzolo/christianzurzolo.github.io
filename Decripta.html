@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Decripta</title>
+  </head>
+  <style>
+    h1 {
+      color: red;
+      text-align: center;
+      font-size: 35px;
+      padding-top: 5px;
+      padding-bottom: 15px;
+      font-family: Georgia, "Times New Roman", Times, serif;
+    }
+    body {
+      background-image: url("https://wallpapershome.com/images/pages/pic_h/25273.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+    p {
+      color: rgb(43, 209, 66);
+      font-family: Verdana, sans-serif;
+      text-align: left;
+      font-size: 25px;
+    }
+    div{
+      color: black;
+      width: 90%;
+      height: 50%;
+      margin-top: 10%;
+      background-color: aqua;
+    }
+  </style>
+  <body>
+    <h1>Secret</h1>
+    <div>
+      <input type="text" id="inputChiave" placeholder="Inserisci la chiave" />
+      <button class="pulsanteDecripta" onclick="decripta()"><b>Decripta</b></button>
+      <table id="tabella">
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <script>
+    let testoCriptato=localStorage.getItem("Testo");
+    const table = document.getElementById("tabella").getElementsByTagName('tbody')[0];
+    let newRow = table.insertRow();
+    let cellCripta=newRow.insertCell(0);
+    cellCripta.textContent=testoCriptato;
+    function decripta(){
+      let testoDecriptato="";
+      let chiave=document.getElementById("inputChiave").value;
+      chiave=parseInt(chiave);
+      for(let i=0; i<testoCriptato.length; i++){
+        let lettera=testoCriptato.charAt(i);
+        let carattereNum=lettera.charCodeAt(0)-chiave;
+        testoDecriptato+=String.fromCharCode(carattereNum);
+      }
+      let cellDecripta=newRow.insertCell(1);
+      cellDecripta.textContent=testoDecriptato;
+    }
+    </script>
+  </body>
+</html>

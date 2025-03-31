@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cripta</title>
+  </head>
+  <style>
+    h1 {
+      color: red;
+      text-align: center;
+      font-size: 35px;
+      padding-top: 5px;
+      padding-bottom: 15px;
+      font-family: Georgia, "Times New Roman", Times, serif;
+    }
+    body {
+      background-image: url("https://wallpapershome.com/images/pages/pic_h/25273.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+    p {
+      color: rgb(43, 209, 66);
+      font-family: Verdana, sans-serif;
+      text-align: left;
+      font-size: 25px;
+    }
+  </style>
+  <body>
+    <h1>Secret</h1>
+    <input
+      type="file"
+      id="inputFile"
+      class="inputFile"
+      onchange="leggi(this)"
+    />
+    <input type="text" id="inputChiave" placeholder="Inserisci la chiave" />
+    <button class="pulsanteCripta" onclick="cripta()"><b>Cripta</b></button>
+    <script>
+      let contenitoreTesto = "";
+      function leggi(input) {
+        let file = input.files[0];
+        let reader = new FileReader();
+        reader.readAsText(file);
+        contenitoreTesto = reader.result;
+        reader.onload=function(){
+          contenitoreTesto = reader.result;
+        }
+      }
+      function cripta() {
+        let testo = "";
+        let chiave = document.getElementById("inputChiave").value;
+        chiave=parseInt(chiave);
+        for(let i=0; i<contenitoreTesto.length; i++){
+          let lettera=contenitoreTesto.charAt(i);
+          let carattereNum=lettera.charCodeAt(0)+chiave;
+          testo=testo+String.fromCharCode(carattereNum);
+        }
+        localStorage.setItem("Testo", testo);
+        window.location.href="Decripta.html";
+      }
+    </script>
+  </body>
+</html>
