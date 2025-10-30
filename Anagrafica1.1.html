@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="demo"></p>
+    <script>
+    let x=0;
+    let stampa="";
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "http://localhost/5bi/zurgras/anagrafica.json", true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          let myObj = JSON.parse(this.responseText);
+          for (y in myObj) {
+            stampa += "<h1>" + myObj[y].nome + "</h1>"
+          }
+        document.getElementById("demo").innerHTML = stampa;
+      }
+};
+</script>
+</body>
+</html>
