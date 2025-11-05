@@ -12,13 +12,19 @@
 </thead>
 <tbody></tbody>
 </table>
+<button id="maggiorenni">Maggiorenni</button>
+<button id="minorenni">Minorenni</button>
+<table id ="tabellaEta">
+  <tbody></tbody>
+  </table>
 <script>
   let persone=[];
   const tbody=document.querySelector("#tabella tbody");
+  const tbodyEta=document.querySelector("#tabellaEta tbody");
   let x=0;
   let stampa="";
   let xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("GET", "https://raw.githubusercontent.com/ChristianZurzolo/christianzurzolo.github.io/refs/heads/main/anagrafica.json", true);
+  xmlhttp.open("GET", "anagrafica.json", true);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -32,9 +38,34 @@
         tbody.appendChild(row);
       }
     }
-
 };
+document.getElementById("maggiorenni").addEventListener("click", function(){
+  for(let i=0; i<persone.length; i++){
+    if(persone[i].eta>=18){
+      let magg = persone[i];
+        let row=tbodyEta.insertRow();
+        row.insertCell().textContent=magg.nome;
+        row.insertCell().textContent=magg.cognome;
+        row.insertCell().textContent=magg.eta;
+        tbodyEta.appendChild(row);
+    }
+      }
+}
+);
 
+document.getElementById("minorenni").addEventListener("click", function(){
+  for(let i=0; i<persone.length; i++){
+    if(persone[i].eta<18){
+      let minn = persone[i];
+        let row=tbodyEta.insertRow();
+        row.insertCell().textContent=minn.nome;
+        row.insertCell().textContent=minn.cognome;
+        row.insertCell().textContent=minn.eta;
+        tbodyEta.appendChild(row);
+    }
+      }
+}
+);
 </script>
 </body>
 </html>
