@@ -12,30 +12,29 @@
 </thead>
 <tbody></tbody>
 </table>
-    <script>
-    let persone=[];
-    const tbody=document.querySelector("#tabella tbody");
-    let x=0;
-    let stampa="";
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "anagrafica.json", true);
-    xmlhttp.send();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-          persone=JSON.parse(this.responseText);
-        for(let i=0; i<persone.lenght; i++){
-          let pers = persone[i];
-          let row=tabella.insertRow();
-          row.insertCell().textContent=pers.nome;
-          row.insertCell().textContent=pers.cognome;
-          row.insertCell().textContent=pers.eta;
-          tbody.appendChild(tr);
-        }
+<script>
+  let persone=[];
+  const tbody=document.querySelector("#tabella tbody");
+  let x=0;
+  let stampa="";
+  let xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", "https://raw.githubusercontent.com/ChristianZurzolo/christianzurzolo.github.io/refs/heads/main/anagrafica.json", true);
+  xmlhttp.send();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        persone=JSON.parse(this.responseText);
+      for(let i=0; i<persone.length; i++){
+        let pers = persone[i];
+        let row=tbody.insertRow();
+        row.insertCell().textContent=pers.nome;
+        row.insertCell().textContent=pers.cognome;
+        row.insertCell().textContent=pers.eta;
+        tbody.appendChild(row);
       }
+    }
 
 };
 
 </script>
 </body>
 </html>
-
