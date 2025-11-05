@@ -1,23 +1,40 @@
-
 <!DOCTYPE html>
 <html>
   <body>
     <p id="demo"></p>
+<table id ="tabella">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Cognome</th>
+    <th>Età</th>
+  </tr>
+</thead>
+<tbody></tbody>
+</table>
     <script>
+    let persone=[];
+    const tbody=document.querySelector("#tabella tbody");
     let x=0;
     let stampa="";
     let xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "http://localhost/5bi/zurgras/anagrafica.json", true);
+    xmlhttp.open("GET", "https://raw.githubusercontent.com/ChristianZurzolo/christianzurzolo.github.io/refs/heads/main/anagrafica.json", true);
     xmlhttp.send();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          let myObj = JSON.parse(this.responseText);
-          for (y in myObj) {
-            stampa += "<h1>" + myObj[y].nome + "</h1>"
-          }
-        document.getElementById("demo").innerHTML = stampa;
+          persone=JSON.parse(this.responseText);
+        for(let i=0; i<persone.lenght; i++){
+          let pers = persone[i];
+          let row=tabella.insertRow();
+          row.insertCell().textContent=pers.nome;
+          row.insertCell().textContent=pers.cognome;
+          row.insertCell().textContent=pers.eta;
+          tbody.appendChild(tr);
+        }
       }
+
 };
+
 </script>
 </body>
 </html>
