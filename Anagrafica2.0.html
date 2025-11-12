@@ -37,14 +37,15 @@ function myFunction(xml) {
     "<th>Età</th>" +
     "</tr>";
   
-    var x = xmlDoc.getElementsByTagName("persona");
+    var x = xmlDoc.getElementsByTagName("Persona");
   myObj = [];
 
   for (i = 0; i < x.length; i++) {
 
-let nome = x[i].getElementsByTagName("nome")[0].childNodes[0].nodeValue;
-let cognome = x[i].getElementsByTagName("cognome")[0].childNodes[0].nodeValue;
-let eta = x[i].getElementsByTagName("eta")[0].childNodes[0].nodeValue;
+    let nome = x[i].getElementsByTagName("Nome")[0].childNodes[0].nodeValue;
+let cognome = x[i].getElementsByTagName("Cognome")[0].childNodes[0].nodeValue;
+let eta = x[i].getElementsByTagName("Eta")[0].childNodes[0].nodeValue;
+
 
 
     table += "<tr><td>" + nome + "</td><td>" + cognome + "</td><td>" +
@@ -103,5 +104,7 @@ function generaSecondaTabella() {
 </script>
 </body>
 </html>
+
+
 
 
