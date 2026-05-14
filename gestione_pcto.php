@@ -31,7 +31,6 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
         --border: rgba(255, 255, 255, 0.1);
     }
 
-    /* Reset e Sfondo Animato */
     html, body {
         min-height: 100%;
         margin: 0;
@@ -41,7 +40,6 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
     }
 
     body {
-        /* Effetto sfumatura mesh moderna */
         background-image: 
             radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
             radial-gradient(at 100% 100%, rgba(30, 41, 59, 0.4) 0px, transparent 50%);
@@ -64,7 +62,6 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
         margin-bottom: 40px;
         letter-spacing: -1px;
     }
-    /* Contenitore Form - Glassmorphism */
     form {
         background: var(--card-bg);
         backdrop-filter: blur(12px);
@@ -83,7 +80,6 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
         transform: translateY(-5px);
     }
 
-    /* Select Custom */
     select {
         width: 100%;
         padding: 16px 20px;
@@ -104,7 +100,6 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
         box-shadow: 0 0 0 4px var(--accent-glow);
     }
 
-    /* Pulsante Ultra-Moderno */
     input[type="submit"] {
         width: 100%;
         padding: 18px;
@@ -130,7 +125,6 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
         transform: scale(1.02);
     }
 
-    /* Link di Navigazione Minimal */
     .nav-links {
         margin: 20px 0;
         display: flex;
@@ -157,7 +151,6 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
         border-color: var(--text-main);
     }
 
-    /* Tabella Minimalista e Pulita */
     table {
         width: 100%;
         max-width: 1100px;
@@ -200,7 +193,6 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
         opacity: 1;
     }
 
-    /* Sottotitolo Risultato */
     h1:last-of-type {
         font-size: 1.5rem;
         margin-top: 20px;
