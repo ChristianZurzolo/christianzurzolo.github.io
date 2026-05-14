@@ -6,7 +6,7 @@ CREATE TABLE azienda(
    ragione_sociale VARCHAR(50) NOT NULL,
    cod_ateco INT NOT NULL,
    mail VARCHAR(30) NOT NULL,
-   telefono VARCHAR(20) NOT NULL -- Cambiato in VARCHAR
+   telefono VARCHAR(20) NOT NULL 
 );
 
 INSERT INTO azienda VALUES('sd', 'metallurgico', 'milano', 'roma', 'metallo', 1, 'metamiro@gmail.com', '333333');
@@ -94,7 +94,6 @@ CREATE TABLE studente (
    FOREIGN KEY (cf_tutor_scolastico) REFERENCES tutor_scolastico(cf_tutor_scolastico)
 );
 
--- Aggiunti i CF dei tutor scolastici mancanti
 INSERT INTO studente VALUES('za', '2009-08-25', 'federico', 'russo', '9845678', 'sistemi', 'federicorusso@gmail.com', 5, 'informatica', 'aa');
 INSERT INTO studente VALUES('zb', '2007-03-23', 'sofia', 'ruggeri', '256609', 'gpoi', 'sofiaruggeri@gmail.com', 4, 'informatica', 'ab');
 INSERT INTO studente VALUES('zc', '2011-09-08', 'filippo', 'orlandi', '9467321', 'italiano', 'filippoorlandi@gmail.com', 2, 'chimica', 'ac');
