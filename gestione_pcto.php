@@ -254,7 +254,7 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
     <a href="pagina4.php">Inserisci Nuovo Studente</a>
     <a href="pagina5.php">Inserisci Nuovo Tutor scolastico</a>
     <a href="pagina6.php">Inserisci Nuovo Tutor aziendale</a>
-    <a href="pagina7.php">Elimina Dipendente Esistente</a>
+    <a href="pagina7.php">Elimina Studente Esistente</a>
     <a href="pagina8.php">Elimina Tutor scolastico Esistente</a>
     <a href="pagina9.php">Elimina Tutor aziendale Esistente</a>
 </div>
