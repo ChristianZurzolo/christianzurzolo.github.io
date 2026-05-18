@@ -200,10 +200,37 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
         text-transform: capitalize;
     }
 
+    .header-banner {
+        width: 100%;
+        max-width: 650px;
+        height: auto;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        box-shadow: 0 0 30px rgba(14, 165, 233, 0.15);
+        margin-bottom: 30px;
+        display: block;
+    }
+
+    footer {
+        width: 100%;
+        max-width: 650px;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+        color: var(--text-muted);
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.85rem;
+        text-align: center;
+        letter-spacing: 0.5px;
+        opacity: 0.8;
+    }
+
     p { color: var(--text-muted); font-style: italic; }
 </style>
 </head>
 <body>
+
+<img src="PROGETTO_INFORMATICA_GPOI.jpg" alt="Progetto multidisciplinare Informatica-GPOI" class="header-banner">
     <h1>Seleziona la tabella da visualizzare: </h1><br>
 
     <form action="" method="post">
@@ -234,6 +261,7 @@ $selected_table = isset($_POST['tabelle']) ? $_POST['tabelle'] : '';
         <br><br>
         <center><h1><?= $selected_table ?></h1></center>
     </form>
+    
 
 <?php
 if ($selected_table) {
@@ -261,5 +289,6 @@ if ($selected_table) {
 
 $conn->close();
 ?>
+<footer>Grassi Thomas, Christian Mazzei, Christian Zurzolo | 5B Inf 2025/2026</footer>
 </body>
 </html>
