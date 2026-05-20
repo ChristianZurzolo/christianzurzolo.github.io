@@ -225,7 +225,7 @@ if($conn->connect_error){
 </head>
 <body>
 
-<h1>Elenco dipendenti</h1>
+<h1>Elenco tutor scolastico</h1>
 
 <form method="post">
     <select name="tutor_cf" onchange="this.form.submit()"><br>
