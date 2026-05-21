@@ -15,9 +15,9 @@ if($conn->connect_error){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestione PCTO - Inserimento tutor scolastici</title>
-        <link rel="icon" type="image/x-icon" href="favicon_gpoi_informatica.ico">
-<link rel="stylesheet" href="style.css">
+    <title>Gestione PCTO - Inserimento tutor aziendali</title>
+    <link rel="icon" type="image/x-icon" href="favicon_gpoi_informatica.ico">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -38,8 +38,8 @@ if($conn->connect_error){
                 <button class="nav-button">Inserisci</button>
                 <ul class="dropdown-menu">
                     <li><a href="pagina4.php">Nuovo Studente</a></li>
-                    <li><a href="#">Nuovo Tutor Scolastico</a></li>
-                    <li><a href="pagina6.php">Nuovo Tutor Aziendale</a></li>
+                    <li><a href="pagina5.php">Nuovo Tutor Scolastico</a></li>
+                    <li><a href="#">Nuovo Tutor Aziendale</a></li>
                     <li><a href="pagina11.php">Nuova attività di stage</a></li>
                 </ul>
             </li>
@@ -69,23 +69,49 @@ if($conn->connect_error){
     <input type="tel" name="telefono" placeholder="Inserisci numero di telefono...">
     Mail
     <input type="email" name="email" placeholder="Inserisci email...">
-    Materia
-    <input type="text" name="materia" placeholder="Inserisci materia...">
+    Competenze
+    <input type="text" name="competenze" placeholder="Inserisci competenze...">
+    Inquadramento
+    <input type="text" name="inquadramento" placeholder="Inserisci inquadramento...">
+    Esperienze
+    <input type="text" name="esperienze" placeholder="Inserisci esperienze...">
+    
+    Attività di Stage
+    <select name="attivita" id="">
+        <option value="" disabled selected>Seleziona un'attività...</option>
+        <option value="1">Lavorazione metallo</option>
+        <option value="2">Scarichi wc</option>
+        <option value="3">Crimpaggio cavo ethernet</option>
+        <option value="4">Scioglimento solfato rameico</option>
+        <option value="5">Progettazione divani</option>
+    </select>
     <input type="submit" value="Invia">
 </form>
 
 <?php
-if(isset($_POST['nome']) && isset($_POST['cognome']) && isset($_POST['cf']) && isset($_POST['telefono']) && isset($_POST['materia']) && isset($_POST['email'])){
+if(
+    isset($_POST['nome']) && isset($_POST['cognome']) && isset($_POST['cf']) && 
+    isset($_POST['telefono']) && isset($_POST['competenze']) && isset($_POST['email']) && 
+    isset($_POST['inquadramento']) && isset($_POST['esperienze']) && isset($_POST['attivita'])
+){
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];
     $email = $_POST['email'];
     $cf = $_POST['cf'];
     $telefono = $_POST['telefono'];
-    $materia = $_POST['materia'];
-    $query = "INSERT INTO tutor_scolastico (nome_tutor_scolastico, cognome_tutor_scolastico, cf_tutor_scolastico, telefono_tutor_scolastico, email_tutor_scolastico, materia) VALUES ('$nome', '$cognome', '$cf', '$telefono', '$email', '$materia');";
+    $competenze = $_POST['competenze'];
+    $inquadramento = $_POST['inquadramento'];
+    $esperienze = $_POST['esperienze'];
+    $cod_attivita = $_POST['attivita']; 
+    $query = "INSERT INTO tutor_aziendale (nome_tutor_aziendale, cognome_tutor_aziendale, cf_tutor_aziendale, telefono_tutor_aziendale, email_tutor_aziendale, competenze_tutor_aziendale, inquadramento, esperienze, cod_attivita) 
+              VALUES ('$nome', '$cognome', '$cf', '$telefono', '$email', '$competenze', '$inquadramento', '$esperienze', '$cod_attivita');";
     $ris = $conn->query($query);
+    if($ris){
+        echo "<p style='color:green; font-weight:bold;'>Inserimento avvenuto con successo!</p>";
+    } else {
+        echo "<p style='color:red; font-weight:bold;'>Errore durante l'inserimento: " . $conn->error . "</p>";
+    }
 }
 ?>
-
 </body>
 </html>

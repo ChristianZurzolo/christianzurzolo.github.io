@@ -15,7 +15,7 @@ if($conn->connect_error){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestione PCTO - Visualizzazione studenti</title>
+    <title>Gestione PCTO - Visualizzazione attività di stage</title>
         <link rel="icon" type="image/x-icon" href="favicon_gpoi_informatica.ico">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -28,10 +28,10 @@ if($conn->connect_error){
             <li class="nav-item">
                 <button class="nav-button">Visualizza Dati</button>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Studenti</a></li>
+                    <li><a href="pagina1.php">Studenti</a></li>
                     <li><a href="pagina2.php">Tutor Scolastici</a></li>
                     <li><a href="pagina3.php">Tutor Aziendali</a></li>
-                    <li><a href="pagina10.php">Attività di stage</a></li>
+                    <li><a href="#">Attività di stage</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -59,27 +59,27 @@ if($conn->connect_error){
 <h1>Elenco studenti</h1>
 
 <form method="post">
-    <select name="studente_cf" onchange="this.form.submit()"><br>
+    <select name="cd_att" onchange="this.form.submit()"><br>
 
         <option value="" disabled selected>-- Seleziona --</option>
 
         <?php
-        $query = "SELECT cf_studente, nome_studente, cognome_studente FROM studente";
+        $query = "SELECT cod_attivita, titolo FROM attivita_di_stage";
         $ris = $conn->query($query);
 
         while ($riga = $ris->fetch_assoc()) {
-            $selected = (isset($_POST['studente_cf']) && $_POST['studente_cf'] == $riga['cf_studente']) ? 'selected' : '';
-            echo '<option value="'.$riga['cf_studente'].'" '.$selected.'>'.$riga['nome_studente'].' '.$riga['cognome_studente'].'</option>';
+            $selected = (isset($_POST['cd_att']) && $_POST['cd_att'] == $riga['cod_attivita']) ? 'selected' : '';
+            echo '<option value="'.$riga['cod_attivita'].'" '.$selected.'>'.$riga['titolo'].'</option>';
         }
         ?>
     </select>
 </form>
 
 <?php
-if(isset($_POST['studente_cf']) && !empty($_POST['studente_cf'])) {
+if(isset($_POST['cd_att']) && !empty($_POST['cd_att'])) {
 
-    $cf_selezionato = $conn->real_escape_string($_POST['studente_cf']);
-    $query = "SELECT * FROM studente WHERE cf_studente = '$cf_selezionato'";
+    $cod_selezionato = $conn->real_escape_string($_POST['cd_att']);
+    $query = "SELECT * FROM attivita_di_stage WHERE cod_attivita = '$cod_selezionato'";
     $ris = $conn->query($query);
 
     if ($ris && $ris->num_rows > 0) {

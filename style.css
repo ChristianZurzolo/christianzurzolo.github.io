@@ -424,3 +424,43 @@
         box-shadow: 0 15px 25px -5px rgba(14, 165, 233, 0.5);
         transform: scale(1.01);
     }
+    
+input[type="number"] {
+    width: 100%;
+    padding: 14px 20px;
+    margin-bottom: 15px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 0 0 4px var(--accent-glow);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    background: transparent;
+    opacity: 0.4;
+    filter: invert(1);
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+input[type="number"]:hover::-webkit-inner-spin-button {
+    opacity: 0.8;
+}
+
+@-moz-document url-prefix() {
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+}

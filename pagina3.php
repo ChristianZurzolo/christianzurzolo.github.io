@@ -31,6 +31,7 @@ if($conn->connect_error){
                     <li><a href="pagina1.php">Studenti</a></li>
                     <li><a href="pagina2.php">Tutor Scolastici</a></li>
                     <li><a href="#">Tutor Aziendali</a></li>
+                    <li><a href="pagina10.php">Attività di stage</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -39,6 +40,7 @@ if($conn->connect_error){
                     <li><a href="pagina4.php">Nuovo Studente</a></li>
                     <li><a href="pagina5.php">Nuovo Tutor Scolastico</a></li>
                     <li><a href="pagina6.php">Nuovo Tutor Aziendale</a></li>
+                    <li><a href="pagina11.php">Nuova attività di stage</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -47,6 +49,7 @@ if($conn->connect_error){
                     <li><a href="pagina7.php">Elimina Studente</a></li>
                     <li><a href="pagina8.php">Elimina Tutor Scolastico</a></li>
                     <li><a href="pagina9.php">Elimina Tutor Aziendale</a></li>
+                    <li><a href="pagina12.php">Elimina attività di stage</a></li>
                 </ul>
             </li>
         </ul>

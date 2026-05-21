@@ -15,7 +15,7 @@ if($conn->connect_error){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestione PCTO - Inserimento tutor scolastici</title>
+    <title>Gestione PCTO - Inserimento attività di stage</title>
         <link rel="icon" type="image/x-icon" href="favicon_gpoi_informatica.ico">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -38,9 +38,9 @@ if($conn->connect_error){
                 <button class="nav-button">Inserisci</button>
                 <ul class="dropdown-menu">
                     <li><a href="pagina4.php">Nuovo Studente</a></li>
-                    <li><a href="#">Nuovo Tutor Scolastico</a></li>
+                    <li><a href="pagina5.php">Nuovo Tutor Scolastico</a></li>
                     <li><a href="pagina6.php">Nuovo Tutor Aziendale</a></li>
-                    <li><a href="pagina11.php">Nuova attività di stage</a></li>
+                    <li><a href="#">Nuova attività di stage</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -61,29 +61,46 @@ if($conn->connect_error){
 <form action="" method="post">
     Nome
     <input type="text" name="nome" placeholder="Inserisci nome...">
-    Cognome
-    <input type="text" name="cognome" placeholder="Inserisci cognome...">
-    Codice fiscale
-    <input type="text" name="cf" placeholder="Inserisci codice fiscale...">
-    Telefono
-    <input type="tel" name="telefono" placeholder="Inserisci numero di telefono...">
-    Mail
-    <input type="email" name="email" placeholder="Inserisci email...">
-    Materia
-    <input type="text" name="materia" placeholder="Inserisci materia...">
+    Ambito insegnamento
+    <input type="text" name="ambito" placeholder="Inserisci cognome...">
+    Codice attività
+    <input type="text" name="cd_att" placeholder="Inserisci codice fiscale...">
+    Data inizio
+    <input type="date" name="data_inizio" id="">
+    Data fine
+    <input type="date" name="data_fine" id="">
+    Numero massimo studenti
+    <input type="number" name="num_max_studenti" id="">
+    Competenze richieste
+    <input type="text" name="competenze" id="">
+    Attività tirocinanti
+    <input type="text" name="tirocinio" id="">
     <input type="submit" value="Invia">
 </form>
 
 <?php
-if(isset($_POST['nome']) && isset($_POST['cognome']) && isset($_POST['cf']) && isset($_POST['telefono']) && isset($_POST['materia']) && isset($_POST['email'])){
-    $nome = $_POST['nome'];
-    $cognome = $_POST['cognome'];
-    $email = $_POST['email'];
-    $cf = $_POST['cf'];
-    $telefono = $_POST['telefono'];
-    $materia = $_POST['materia'];
-    $query = "INSERT INTO tutor_scolastico (nome_tutor_scolastico, cognome_tutor_scolastico, cf_tutor_scolastico, telefono_tutor_scolastico, email_tutor_scolastico, materia) VALUES ('$nome', '$cognome', '$cf', '$telefono', '$email', '$materia');";
+if(
+    isset($_POST['cd_att']) && isset($_POST['num_max_studenti']) && 
+    isset($_POST['nome']) && isset($_POST['data_inizio']) && 
+    isset($_POST['ambito']) && isset($_POST['data_fine']) && 
+    isset($_POST['competenze']) && isset($_POST['tirocinio'])
+){
+    $cod_attivita = $_POST['cd_att'];
+    $num_max_studenti = $_POST['num_max_studenti'];
+    $titolo = $_POST['nome'];
+    $data_inizio = $_POST['data_inizio'];
+    $ambito_insegnamento = $_POST['ambito'];
+    $data_fine = $_POST['data_fine'];
+    $competenze_richieste = $_POST['competenze'];
+    $attivita_tirocinanti = $_POST['tirocinio'];
+    $query = "INSERT INTO attivita_di_stage (cod_attivita, num_max_studenti, titolo, data_inizio, ambito_insegnamento, data_fine, competenze_richieste, attivita_tirocinanti) 
+              VALUES ('$cod_attivita', '$num_max_studenti', '$titolo', '$data_inizio', '$ambito_insegnamento', '$data_fine', '$competenze_richieste', '$attivita_tirocinanti');";
     $ris = $conn->query($query);
+    if($ris){
+        echo "<p style='color:green; font-weight:bold;'>Attività di stage inserita con successo!</p>";
+    } else {
+        echo "<p style='color:red; font-weight:bold;'>Errore durante l'inserimento: " . $conn->error . "</p>";
+    }
 }
 ?>
 
