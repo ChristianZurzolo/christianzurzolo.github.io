@@ -58,7 +58,6 @@ CREATE TABLE tutor_aziendale (
    FOREIGN KEY (cod_attivita) REFERENCES attivita_di_stage(cod_attivita)
 );
 
--- Corrette le virgole mancanti qui sotto
 INSERT INTO tutor_aziendale VALUES('ca', 'mario', '123456', 'rossi', 'mariorossi@gmail.com', 'lavorazione metallo', 'metalmeccanica', 'aziende milanesi', 1);
 INSERT INTO tutor_aziendale VALUES('cb', 'andrea', '654321', 'bianchi', 'andreabianchi@gmail.com', 'idraulica', 'operaio', 'sostituzione wc', 2);
 INSERT INTO tutor_aziendale VALUES('cc', 'christian', '78910', 'verdi', 'christianverdi@gmial.com', 'informatiche', 'dipendente', 'crimpaggio cavi', 3);
