@@ -15,7 +15,7 @@ if($conn->connect_error){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestione PCTO - Visualizzazione studenti</title>
+    <title>Gestione PCTO - Inserimento tutor scolastici</title>
         <link rel="icon" type="image/x-icon" href="favicon_gpoi_informatica.ico">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -28,7 +28,7 @@ if($conn->connect_error){
             <li class="nav-item">
                 <button class="nav-button">Visualizza Dati</button>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Studenti</a></li>
+                    <li><a href="pagina1.php">Studenti</a></li>
                     <li><a href="pagina2.php">Tutor Scolastici</a></li>
                     <li><a href="pagina3.php">Tutor Aziendali</a></li>
                 </ul>
@@ -37,7 +37,7 @@ if($conn->connect_error){
                 <button class="nav-button">Inserisci</button>
                 <ul class="dropdown-menu">
                     <li><a href="pagina4.php">Nuovo Studente</a></li>
-                    <li><a href="pagina5.php">Nuovo Tutor Scolastico</a></li>
+                    <li><a href="#">Nuovo Tutor Scolastico</a></li>
                     <li><a href="pagina6.php">Nuovo Tutor Aziendale</a></li>
                 </ul>
             </li>
@@ -53,54 +53,34 @@ if($conn->connect_error){
     </div>
 </nav>
 
-<h1>Elenco studenti</h1>
+<h1>Inserimento tutor scolastici</h1>
 
-<form method="post">
-    <select name="studente_cf" onchange="this.form.submit()"><br>
-
-        <option value="" disabled selected>-- Seleziona --</option>
-
-        <?php
-        $query = "SELECT cf_studente, nome_studente, cognome_studente FROM studente";
-        $ris = $conn->query($query);
-
-        while ($riga = $ris->fetch_assoc()) {
-            $selected = (isset($_POST['studente_cf']) && $_POST['studente_cf'] == $riga['cf_studente']) ? 'selected' : '';
-            echo '<option value="'.$riga['cf_studente'].'" '.$selected.'>'.$riga['nome_studente'].' '.$riga['cognome_studente'].'</option>';
-        }
-        ?>
-    </select>
+<form action="" method="post">
+    Nome
+    <input type="text" name="nome" placeholder="Inserisci nome...">
+    Cognome
+    <input type="text" name="cognome" placeholder="Inserisci cognome...">
+    Codice fiscale
+    <input type="text" name="cf" placeholder="Inserisci codice fiscale...">
+    Telefono
+    <input type="tel" name="telefono" placeholder="Inserisci numero di telefono...">
+    Mail
+    <input type="email" name="email" placeholder="Inserisci email...">
+    Materia
+    <input type="text" name="materia" placeholder="Inserisci materia...">
+    <input type="submit" value="Invia">
 </form>
 
 <?php
-if(isset($_POST['studente_cf']) && !empty($_POST['studente_cf'])) {
-
-    $cf_selezionato = $conn->real_escape_string($_POST['studente_cf']);
-    $query = "SELECT * FROM studente WHERE cf_studente = '$cf_selezionato'";
+if(isset($_POST['nome']) && isset($_POST['cognome']) && isset($_POST['cf']) && isset($_POST['telefono']) && isset($_POST['materia']) && isset($_POST['email'])){
+    $nome = $_POST['nome'];
+    $cognome = $_POST['cognome'];
+    $email = $_POST['email'];
+    $cf = $_POST['cf'];
+    $telefono = $_POST['telefono'];
+    $materia = $_POST['materia'];
+    $query = "INSERT INTO tutor_scolastico (nome_tutor_scolastico, cognome_tutor_scolastico, cf_tutor_scolastico, telefono_tutor_scolastico, email_tutor_scolastico, materia) VALUES ('$nome', '$cognome', '$cf', '$telefono', '$email', '$materia');";
     $ris = $conn->query($query);
-
-    if ($ris && $ris->num_rows > 0) {
-
-        echo "<table>";
-        echo "<tr>";
-        while ($field = $ris->fetch_field()) {
-            echo "<th>" . str_replace('_', ' ', $field->name) . "</th>";
-        }
-
-        echo "</tr>";
-        while ($riga = $ris->fetch_assoc()) {
-            echo "<tr>";
-            foreach ($riga as $valore) {
-                echo "<td>" . $valore . "</td>";
-            }
-            echo "</tr>";
-        }
-
-        echo "</table>";
-
-    } else {
-        echo "<p>Nessun dato trovato per lo studente selezionato.</p>";
-    }
 }
 ?>
 

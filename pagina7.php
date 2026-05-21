@@ -11,13 +11,13 @@ if($conn->connect_error){
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestione PCTO - Visualizzazione tutor scolastici</title>
+    <title>Gestione PCTO - Eliminazione studenti</title>
         <link rel="icon" type="image/x-icon" href="favicon_gpoi_informatica.ico">
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -29,7 +29,7 @@ if($conn->connect_error){
                 <button class="nav-button">Visualizza Dati</button>
                 <ul class="dropdown-menu">
                     <li><a href="pagina1.php">Studenti</a></li>
-                    <li><a href="#">Tutor Scolastici</a></li>
+                    <li><a href="pagina2.php">Tutor Scolastici</a></li>
                     <li><a href="pagina3.php">Tutor Aziendali</a></li>
                 </ul>
             </li>
@@ -44,7 +44,7 @@ if($conn->connect_error){
             <li class="nav-item">
                 <button class="nav-button">Elimina</button>
                 <ul class="dropdown-menu">
-                    <li><a href="pagina7.php">Elimina Studente</a></li>
+                    <li><a href="#">Elimina Studente</a></li>
                     <li><a href="pagina8.php">Elimina Tutor Scolastico</a></li>
                     <li><a href="pagina9.php">Elimina Tutor Aziendale</a></li>
                 </ul>
@@ -53,54 +53,31 @@ if($conn->connect_error){
     </div>
 </nav>
 
-<h1>Elenco tutor scolastico</h1>
+<h1>Eliminazione studenti</h1>
 
 <form method="post">
-    <select name="tutor_cf" onchange="this.form.submit()"><br>
+    <select name="studente_cf" onchange="this.form.submit()"><br>
 
         <option value="" disabled selected>-- Seleziona --</option>
 
         <?php
-        $query = "SELECT cf_tutor_scolastico, nome_tutor_scolastico, cognome_tutor_scolastico FROM tutor_scolastico";
+        $query = "SELECT cf_studente, nome_studente, cognome_studente FROM studente";
         $ris = $conn->query($query);
 
         while ($riga = $ris->fetch_assoc()) {
-            $selected = (isset($_POST['tutor_cf']) && $_POST['tutor_cf'] == $riga['cf_tutor_scolastico']) ? 'selected' : '';
-            echo '<option value="'.$riga['cf_tutor_scolastico'].'" '.$selected.'>'.$riga['nome_tutor_scolastico'].' '.$riga['cognome_tutor_scolastico'].'</option>';
+            $selected = (isset($_POST['studente_cf']) && $_POST['studente_cf'] == $riga['cf_studente']) ? 'selected' : '';
+            echo '<option value="'.$riga['cf_studente'].'" '.$selected.'>'.$riga['nome_studente'].' '.$riga['cognome_studente'].'</option>';
         }
         ?>
     </select>
 </form>
 
 <?php
-if(isset($_POST['tutor_cf']) && !empty($_POST['tutor_cf'])) {
+if(isset($_POST['studente_cf']) && !empty($_POST['studente_cf'])) {
 
-    $cf_selezionato = $conn->real_escape_string($_POST['tutor_cf']);
-    $query = "SELECT * FROM tutor_scolastico WHERE cf_tutor_scolastico = '$cf_selezionato'";
+    $cf_selezionato = $conn->real_escape_string($_POST['studente_cf']);
+    $query = "DELETE FROM studente WHERE cf_studente = '$cf_selezionato'";
     $ris = $conn->query($query);
-
-    if ($ris && $ris->num_rows > 0) {
-
-        echo "<table>";
-        echo "<tr>";
-        while ($field = $ris->fetch_field()) {
-            echo "<th>" . str_replace('_', ' ', $field->name) . "</th>";
-        }
-
-        echo "</tr>";
-        while ($riga = $ris->fetch_assoc()) {
-            echo "<tr>";
-            foreach ($riga as $valore) {
-                echo "<td>" . $valore . "</td>";
-            }
-            echo "</tr>";
-        }
-
-        echo "</table>";
-
-    } else {
-        echo "<p>Nessun dato trovato per lo studente selezionato.</p>";
-    }
 }
 ?>
 
